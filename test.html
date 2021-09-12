@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>test</title>
+  </head>
+  <body>
+      <style>
+          .trac {
+              display: flex;
+          }
+      </style>
+    <div id="main"></div>
+
+    <form id="form-1">
+        <button> случайный </button>
+        <img id="img1" src="img/page_0067.jpg" height=240 width=350 >
+        <select id="s1">
+
+        </select>
+    </form>
+
+    <div id="parent">
+        <div class="elem">
+            <input id="trackLength" " type="number" min=1 max=5 value="3" title="Количество этапов на трассе , max 5"> 
+            <select name="trackColor" >
+                    <option value="white" selected="selected">Белая</option>
+                    <option value="yellow">Жёлтая</option>
+                    <option value="green">Зеленая</option>
+                    <option value="blue">Синяя</option>
+                    <option value="red">Красная</option>
+                    <option value="black">Чёрная</option>
+                </select>
+            <input id="generateBtn" type="button" value="Сгенерировать"> 
+        </div>
+        <div id="box"></div>
+
+    </div>
+    <input onclick="trackAdd()" type="button" value="+" > 
+
+<!-- тостовые кнопки -->    
+
+
+<div id="btn">
+</div>
+
+    <script>
+
+
+
+// загатовка этапа
+const zagotovka =    " <form id='form'>\
+        <img  class='img' src='img/page_0000.jpg' height=240 width=350 >\
+        <select class=slt>\
+        </select>\
+    </form>";
+
+
+// Список этапов
+let allTrack = ['Zig zag trapeziums', 'Rope bridge', 'Spaghetti bridge', 'Trapeziums', 'High ropes swing plates','Horizontal ladder', 'Net path', 'Barrels', 'Climbing planks','Horizontal net']
+    
+//Генерация списка этапов в селект
+function addSelect(){
+const select = document.querySelectorAll('.slt');
+select.forEach(select => {
+    select.addEventListener('change',chngImg) 
+    for (var i = 0; i < allTrack.length; i++){
+        var opt = document.createElement('option');
+        opt.value = allTrack[i];
+        opt.innerHTML = allTrack[i];
+        select.appendChild(opt);
+        }
+    })
+}
+
+// создаем трасу
+function addTrack(color){ //принимает цвет трасы 
+    let trac = document.createElement("div");
+    trac = addSegment(6);
+    trac.classList.add("trac");
+    let main = document.getElementById('main')
+    main.appendChild(trac);
+}
+addTrack('blue') //test
+
+// добавляем этапы
+function addSegment(segmenAmount){
+    let main = document.createElement("div");
+    for (let i=0; i<segmenAmount; i++){
+        let segment = document.createElement("div");
+        segment.innerHTML = zagotovka;
+        segment.classList.add("segment");
+        main.appendChild(segment);
+    }
+    return main;
+}
+addSelect()
+
+//смена рисунка этапа в зависимости от выбора в селект
+function chngImg(event){
+    let img = event.target.parentElement.querySelector('.img')
+    img.src = "img/"+ event.target.value + ".jpg";
+};
+
+
+    </script>
+</body>
+</html>

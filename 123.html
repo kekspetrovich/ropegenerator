@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>123</title>
+  </head>
+  <body>
+    <input id="add-btn" name="add" form="plusf" value="Добавить" type="button"> 
+   <div id="out_arr"></div>
+      <select id="SelectColor" name="Выбор типа трасы">
+        <option value="green">Зеленая</option>
+        <option value="blue">Синяя</option>
+      </select>
+    <input id="gen-btn" name="generate" form="plusf" value="Генерировать" type="button"> 
+    <br>
+
+    
+    <script>
+    let push = document.querySelector("#gen-btn");
+    let addBtn = document.querySelector("#add-btn");
+    let greens = ["g1", "g2", "g3"];
+    let blues = ["b1", "b2", "b3"];
+    let out_arr = document.getElementById('out_arr');
+    let body = document.querySelector("#add-btn");
+    
+    addBtn.onclick = function(){
+    let myDiv = document.getElementById("add-btn");
+    var arrayc = ["white","yellow","green","blue","red","black"];
+    let selectList = document.createElement("select");
+
+    selectList.setAttribute("id", "mySelect");
+    myDiv.appendChild(selectList);
+
+    var newStr = {};
+    
+    for (let out_arr in newStr) {
+      newStr[out_arr] = newStr[out_arr];
+      /*
+    var option = document.createElement("option");
+    option.value = arrayc[i];
+    option.text = arrayc[i];
+    out_arr.appendChild(option);
+    */
+    
+
+}
+    }    
+    function shuffle(array) {
+          array.sort(() => Math.random() - 0.5);
+    }
+
+     push.onclick = function() {
+      var selind = document.getElementById("SelectColor").options.selectedIndex;
+      var val = document.getElementById("SelectColor").options[selind].value;
+      if (val == "green") {
+        shuffle(greens);
+        let str1 = ' ';
+        for (let i = 0; i< greens.length; i++  ) {
+        if (greens[i]!==undefined) str1 +=greens[i];
+        }
+        out_arr.innerHTML = str1;
+      } else {
+        shuffle(blues);
+        let str2 = ' ';
+        for (let i = 0; i< blues.length; i++  ) {
+        if (blues[i]!==undefined) str2 +=blues[i];
+        }
+        out_arr.innerHTML = str2;
+      };
+    }
+/*
+    gen.onclick = function() {
+
+    }*/
+    </script>
+    
+  </body>
+</html>
