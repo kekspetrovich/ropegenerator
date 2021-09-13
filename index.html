@@ -1,14 +1,93 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>test</title>
   </head>
   <body>
       <style>
-          .trac {
-              display: flex;
-          }
+        * {
+            margin: 0;
+            padding: 0;
+            -webkit-box-sizing: border-box;
+                    box-sizing: border-box;
+        }
+        body {
+            max-width: 1900px;
+            margin: 0 auto;
+        }
+        #main {
+            margin: 0 auto;
+            padding: 50px 15px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+        }
+        .trac {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+            row-gap: 30px;
+            -webkit-column-gap: 1%;
+               -moz-column-gap: 1%;
+                    column-gap: 1%;
+        }
+        .trac .segment {
+            -webkit-box-flex: 0;
+                -ms-flex: 0 1 19%;
+                    flex: 0 1 19%;
+        }
+        .trac .segment form {
+            /*max-width: 350px;*/
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+        }
+        .trac .segment form .img {
+            width: 100%;
+            height: auto;
+            margin: 0 0 10px 0;
+            /*
+            width: 350px;
+            height: 240px;
+            */
+        }
+        @media (max-width: 1250px) {
+            .trac .segment {
+                -ms-flex-preferred-size: 24%;
+                    flex-basis: 24%;
+                
+            }
+        }
+        @media (max-width: 750px) {
+            .trac .segment {
+                -ms-flex-preferred-size: 32%;
+                    flex-basis: 32%;
+            }
+        }
+        @media (max-width: 580px) {
+            .trac .segment {
+                -ms-flex-preferred-size: 49%;
+                    flex-basis: 49%;
+            }
+        }
+        @media (max-width: 390px) {
+            .trac .segment {
+                -ms-flex-preferred-size: 99%;
+                    flex-basis: 99%;
+            }
+        }
       </style>
     <div id="main"></div>
 
@@ -50,7 +129,7 @@
 
 // загатовка этапа
 const zagotovka =    " <form id='form'>\
-        <img  class='img' src='img/page_0000.jpg' height=240 width=350 >\
+        <img  class='img' src='img/page_0000.jpg'  >\
         <select class=slt>\
         </select>\
     </form>";
