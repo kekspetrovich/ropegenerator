@@ -48,8 +48,14 @@
 
 //случайная генерация трассы
 function allTrackRandomizer(event){
-
-}
+let select = event.target.parentElement.querySelectorAll('.slt')
+//console.log(select);
+select.forEach(select => {
+    console.log(select);
+    select.selectedIndex = Math.floor(Math.random() * 10);
+    console.log( select);
+});
+}; 
 
 // загатовка этапа
 const zagotovka =    " <form id='form'>\
@@ -66,7 +72,7 @@ let allTrack = ['Zig zag trapeziums', 'Rope bridge', 'Spaghetti bridge', 'Trapez
 function addSelect(){
 const select = document.querySelectorAll('.slt');
 select.forEach(select => {
-    select.addEventListener('change',chngImg) 
+    select.addEventListener('change',chngImg);
     for (var i = 0; i < allTrack.length; i++){
         var opt = document.createElement('option');
         opt.value = allTrack[i];
@@ -81,10 +87,11 @@ function addTrack(color){ //принимает цвет трасы
     //let trac = document.createElement("div");
     let genBtn = document.createElement("button");
     genBtn.innerHTML = '🎲'
-    trac = addSegment(10);
+    genBtn.addEventListener('click',allTrackRandomizer) 
+    trac = addSegment(4);
     trac.classList.add("trac");
     let main = document.getElementById('main')
-    main.appendChild(genBtn);
+    trac.appendChild(genBtn);
     main.appendChild(trac);
 }
 addTrack('blue') //test
@@ -104,7 +111,8 @@ addSelect()
 
 //смена рисунка этапа в зависимости от выбора в селект
 function chngImg(event){
-    let img = event.target.parentElement.querySelector('.img')
+    console.log(this.parentElement)
+    let img = this.parentElement.parentElement.querySelector('.img')
     img.src = "img/"+ event.target.value + ".jpg";
 };
 
