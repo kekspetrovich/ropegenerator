@@ -46,7 +46,10 @@
 
     <script>
 
+//случайная генерация трассы
+function allTrackRandomizer(event){
 
+}
 
 // загатовка этапа
 const zagotovka =    " <form id='form'>\
@@ -75,10 +78,13 @@ select.forEach(select => {
 
 // создаем трасу
 function addTrack(color){ //принимает цвет трасы 
-    let trac = document.createElement("div");
-    trac = addSegment(6);
+    //let trac = document.createElement("div");
+    let genBtn = document.createElement("button");
+    genBtn.innerHTML = '🎲'
+    trac = addSegment(10);
     trac.classList.add("trac");
     let main = document.getElementById('main')
+    main.appendChild(genBtn);
     main.appendChild(trac);
 }
 addTrack('blue') //test
