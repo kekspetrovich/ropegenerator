@@ -54,7 +54,8 @@ function addTrack(color) { //принимает цвет трасы
     genBtn.addEventListener('click', allTrackRandomizer)
     trac = addSegment(document.getElementById("input_id").value);
     trac.classList.add("trac");
-    trac.prepend(genBtn);
+    //trac.prepend(genBtn);
+    main.prepend(genBtn);
     main.append(trac);
 }
 addTrack('blue') //test
