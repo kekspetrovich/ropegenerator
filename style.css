@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+body {
+    max-width: 1900px;
+    margin: 0 auto;
+}
+#main {
+    margin: 0 auto;
+    padding: 50px 15px;
+    text-align: center;
+}
+select, input, button {
+    padding: 2px;
+    border: 1px solid rgb(104, 122, 122);
+    border-radius: 5px;
+}
+#input_id {
+    width: 50px;
+}
+.trac {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin: 20px 0 0 0;
+}
+.trac .segment {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 16.666%;
+            flex: 0 1 16.666%;
+}
+.trac .segment form {
+    position: relative;
+    width: 90%;
+    padding-bottom: 90%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 0 1px 15% 1px;
+    overflow: hidden;
+}
+.trac .segment form .img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: auto;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+}
+.slt {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+}
+@media (max-width: 1200px) {
+    .trac .segment {
+        -webkit-box-flex: 0;
+            -ms-flex: 0 1 20%;
+                flex: 0 1 20%;
+    }
+}
+@media (max-width: 1000px) {
+    .trac .segment {
+        -webkit-box-flex: 0;
+            -ms-flex: 0 1 25%;
+                flex: 0 1 25%;
+    }
+    .trac .segment form {
+        margin: 0 1px 10% 1px;
+    }
+}
+@media (max-width: 767px) {
+    .trac .segment {
+        -webkit-box-flex: 0;
+            -ms-flex: 0 1 33.333%;
+                flex: 0 1 33.333%;
+    }
+}
+@media (max-width: 480px) {
+    .trac .segment {
+        -webkit-box-flex: 0;
+            -ms-flex: 0 1 50%;
+                flex: 0 1 50%;
+    }
+}
